@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        #panel, #flip , #flipUp, #flipToggle{
+          padding: 5px;
+          text-align: center;
+          background-color: #e5eecc;
+          border: solid 1px #c3c3c3;
+        }
+        
+        #panel {
+          padding: 50px;
+          display: none;
+        }
+        </style>
+</head>
+<body>
+
+    <h2 id="heading2">Heading</h2>
+    <p class="para">Paragraph</p>
+    <p>Paragraph</p>
+
+    <Button id="show">Show</Button>
+    <Button id="hide">Hide</Button>
+    <br>
+    <br>
+    <Button id="fadeid">Fade In</Button>
+    <Button id="fadeout">Fade Out</Button>
+
+
+    <!-- slide -->
+    <div id="flip">Click to slide down panel</div>
+    <div id="flipUp">Click to slide up panel</div>
+    <div id="flipToggle">Click to slide toggle panel</div>
+    <div id="panel">Hello world!</div> 
+
+
+    <ol>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+    </ol>
+    <button id="addItem">Add Item</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
