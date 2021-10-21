@@ -2,9 +2,25 @@ from django.shortcuts import render, redirect
 from .models import Post
 from .forms import PostForm
 from django.contrib import messages
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def post_list(request):
     posts = Post.objects.filter(is_active=True)
+
+    # search 
+    title = request.GET.get('title')
+    if title is not None:
+        posts = posts.filter(title__contains=title)
+
+    # paginator
+    page = request.GET.get('page', 1)
+    paginator = Paginator(posts, 2)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
 
     context = {
         'posts': posts,
@@ -73,3 +89,17 @@ def post_detail(request, pk):
         'post': post
     }
     return render(request, 'detail.html', context)
+
+def post_delete(request, pk):
+    if request.method == 'POST':
+        try:
+            post = Post.objects.get(pk=pk)
+            post.delete()
+            messages.success(request, 'Post delete successful!')
+            return redirect('post_list')
+        except Post.DoesNotExist:
+            messages.success(request, 'Post not found 404!')
+            return redirect('post_list')
+    else:
+        messages.success(request, 'Invalid Request')
+        return redirect('post_list')
