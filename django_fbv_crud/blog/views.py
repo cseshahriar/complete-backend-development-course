@@ -60,3 +60,16 @@ def post_update(request, pk):
             'is_update': True,
         }
         return render(request, 'create.html', context)
+
+
+def post_detail(request, pk):
+    try:
+        post = Post.objects.get(pk=pk)
+    except Post.DoesNotExist:
+        messages.success(request, 'Post not found 404!')
+        return redirect('post_list')
+
+    context = {
+        'post': post
+    }
+    return render(request, 'detail.html', context)
