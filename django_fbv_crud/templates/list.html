@@ -12,7 +12,7 @@
             <h2>Post List
 
                 <span class="float-right" style="display: inline-block;width: 100px;float: right;">
-                    <a href="{% url 'post_creatge' %}" class="btn btn-success btn-sm">Add New</a>
+                    <a href="{% url 'post_create' %}" class="btn btn-success btn-sm">Add New</a>
                 </span>
             </h2>
             <table class="table">
@@ -32,7 +32,7 @@
                         <td>{{ post.created|date:'d-m-Y H:i:s a' }}</td>
                         <td>
                             <a href="" class="btn btn-info btn-sm">View</a>
-                            <a href="" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="{% url 'post_update' post.pk %}" class="btn btn-primary btn-sm">Edit</a>
                             <a href="" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
