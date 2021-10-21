@@ -6,7 +6,15 @@
 <div class="container py-5">
     <div class="row">
         <div class="col">
-            <h2>Post List</h2>
+            
+            {% include '_message.html' %}
+
+            <h2>Post List
+
+                <span class="float-right" style="display: inline-block;width: 100px;float: right;">
+                    <a href="{% url 'post_creatge' %}" class="btn btn-success btn-sm">Add New</a>
+                </span>
+            </h2>
             <table class="table">
                 <thead>
                   <tr>

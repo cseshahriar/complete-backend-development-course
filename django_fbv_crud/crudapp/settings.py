@@ -40,6 +40,10 @@ INSTALLED_APPS = [
 
     # cutom apps
     'blog.apps.BlogConfig',
+
+
+    # third party libraries
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
