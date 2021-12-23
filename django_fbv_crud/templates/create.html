@@ -21,7 +21,7 @@
             <div class="card">
                 <div class="card-body">
                     <h2 class="mb-3 text-center">
-                        {% if is_update %}
+                        {% if object %} <!-- if watching fbv so used is_update -->
                             Post Update
                         {% else %}
                             Post Create
@@ -38,13 +38,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="id_title">Title</label>
+                            <label for="id_">Description</label>
                             {% render_field form.description class+="form-control" rows="5" cols="20" title="Hello, world!" %}
                             {{ form.description.errors }}
                         </div>
 
                         <div class="form-group mt-2">
-                            <label for="id_title">Title</label>
+                            <label for="id_active">Is Active</label>
                             {% render_field form.is_active  %}
                             {{ form.is_active.errors }}
                         </div>
